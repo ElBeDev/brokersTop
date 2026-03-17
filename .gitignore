@@ -1,0 +1,13 @@
+# Template folder - delete before final deploy
+Forexy - Forex Broker & Trading HTML Template Preview - ThemeForest.html
+Forexy - Forex Broker & Trading HTML Template Preview - ThemeForest_files/
+
+# Setup helper script
+setup_assets.py
+
+# macOS
+.DS_Store
+**/.DS_Store
+
+# Node
+node_modules/
