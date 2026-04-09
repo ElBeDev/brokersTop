@@ -1144,7 +1144,7 @@
       </div>
       <div class="row justify-content-center mt-5">
         <div class="col-lg-8">
-          <form action="mailto:info@brokerstopllc.com" method="post" enctype="text/plain" class="wow fadeInUp">
+          <form id="contact-form" action="#" method="post" class="wow fadeInUp">
             <div class="row">
               <div class="col-md-6 mb-3">
                 <input type="text" name="name" placeholder="Your Name" required
@@ -1236,7 +1236,7 @@
         <div class="newsltr-content-box">
           <h4>Subscribe to our newsletter &amp; stay informed <br> about market news and exclusive offers</h4>
           <div class="newsletter-box">
-            <form method="post" action="mailto:info@brokerstopllc.com">
+            <form id="newsletter-form" action="#">
               <div class="form-group">
                 <input type="email" name="email" value="" placeholder="Your email address" required="">
                 <button type="submit" class="theme-btn fa fa-arrow-right"></button>
@@ -1356,6 +1356,30 @@
 <script src="assets/js/element-in-view.js"></script>
 <script src="assets/js/script.js"></script>
 <script src="assets/js/script-gsap.js"></script>
+
+<script>
+/* Contact form → opens mailto link (no server needed) */
+document.getElementById('contact-form').addEventListener('submit', function(e) {
+  e.preventDefault();
+  var name    = this.querySelector('[name="name"]').value;
+  var email   = this.querySelector('[name="email"]').value;
+  var subject = this.querySelector('[name="subject"]').value || 'Contact from Website';
+  var message = this.querySelector('[name="message"]').value;
+  var body    = 'Name: ' + name + '%0AEmail: ' + email + '%0A%0A' + encodeURIComponent(message);
+  window.location.href = 'mailto:info@brokerstopllc.com'
+    + '?subject=' + encodeURIComponent(subject)
+    + '&body=' + body;
+});
+
+/* Newsletter form → opens mailto link */
+document.getElementById('newsletter-form').addEventListener('submit', function(e) {
+  e.preventDefault();
+  var email = this.querySelector('[name="email"]').value;
+  window.location.href = 'mailto:info@brokerstopllc.com'
+    + '?subject=Newsletter%20Subscription'
+    + '&body=Please%20subscribe%20me%20to%20the%20Brokers%20Top%20newsletter.%0AEmail%3A%20' + encodeURIComponent(email);
+});
+</script>
 
 </body>
 </html>

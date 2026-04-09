@@ -1259,6 +1259,43 @@ textarea::placeholder {
 .skill-bar .bar-inner .bar {
   background-color: var(--ft-accent) !important;
 }
+
+/* ─────────────────────────────────────────
+   FIX 404 MISSING IMAGES FROM STYLE.CSS
+   These images don't exist in our asset
+   folder — override with CSS alternatives
+───────────────────────────────────────── */
+
+/* Banner slide background — was a photo, now navy gradient */
+.banner-section .bg-slide-1,
+.banner-section .bg-slide-2 {
+  background-image: none !important;
+  background-color: var(--ft-navy-deep) !important;
+}
+.banner-section .bg-slide-1::before,
+.banner-section .bg-slide-2::before {
+  background-image: none !important;
+}
+
+/* Testimonial mask image — removes the wavy clipping mask */
+.testimonial-block .inner-box {
+  -webkit-mask-image: none !important;
+          mask-image: none !important;
+}
+
+/* exchange.svg — used as decorative icon beside pricing names — hide it */
+.pricing-block_one .upper-box .name span::before,
+.pricing-block_one .upper-box .name span:before {
+  background: none !important;
+  display: none !important;
+}
+
+/* lines.svg — used as decorative beside platform guide icon */
+.platform-section .guide-outer .icon::before,
+.platform-section .guide-outer .icon:before {
+  background: none !important;
+  display: none !important;
+}
 ::-webkit-scrollbar {
   width: 6px;
 }
