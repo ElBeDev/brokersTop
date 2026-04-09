@@ -483,6 +483,94 @@ a:hover { color: #fff !important; }
   color: var(--ft-accent) !important;
 }
 
+/* ─────────────────────────────────────────
+   INVESTOR PROFILE CARDS (About sidebar)
+───────────────────────────────────────── */
+.investor-profile-cards {
+  list-style: none;
+  margin: 0 0 28px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.investor-profile-cards li {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 16px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(63,209,255,0.12);
+  border-radius: 14px;
+  backdrop-filter: blur(10px);
+  transition: border-color 0.25s, background 0.25s, transform 0.2s;
+}
+.investor-profile-cards li:hover {
+  background: rgba(63,209,255,0.07);
+  border-color: rgba(63,209,255,0.35);
+  transform: translateX(4px);
+}
+.ipc-icon {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: rgba(63,209,255,0.1);
+  border: 1px solid rgba(63,209,255,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ft-accent);
+  font-size: 18px;
+}
+.ipc-icon .si {
+  width: 18px;
+  height: 18px;
+}
+.ipc-body {
+  min-width: 0;
+}
+.ipc-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #fff;
+  line-height: 1.3;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+.ipc-desc {
+  font-size: 11.5px;
+  color: rgba(255,255,255,0.50);
+  margin-top: 2px;
+  line-height: 1.4;
+}
+/* Gold card accent */
+.ipc-gold {
+  border-color: rgba(255,207,64,0.25) !important;
+  background: rgba(255,207,64,0.05) !important;
+}
+.ipc-gold:hover {
+  background: rgba(255,207,64,0.1) !important;
+  border-color: rgba(255,207,64,0.5) !important;
+}
+.ipc-gold .ipc-icon {
+  background: rgba(255,207,64,0.12);
+  border-color: rgba(255,207,64,0.3);
+  color: #FFCF40;
+}
+.ipc-badge {
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: 20px;
+  background: rgba(255,207,64,0.15);
+  color: #FFCF40;
+  border: 1px solid rgba(255,207,64,0.3);
+  letter-spacing: 0.3px;
+}
+
 .list-style-three {
   background: var(--ft-card-bg) !important;
   border: 1px solid var(--ft-accent-border) !important;
