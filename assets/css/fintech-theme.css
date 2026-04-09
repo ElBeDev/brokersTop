@@ -470,6 +470,18 @@ a:hover { color: #fff !important; }
   color: var(--ft-text-muted) !important;
   font-size: 15px !important;
   line-height: 1.8 !important;
+  margin-bottom: 20px !important;
+}
+
+/* Right column inner padding for about section */
+.about-section .col-lg-7 .inner-column {
+  padding-left: 20px;
+}
+@media (max-width: 991.98px) {
+  .about-section .col-lg-7 .inner-column {
+    padding-left: 0;
+    margin-top: 30px;
+  }
 }
 
 /* Bulleted lists */
@@ -493,6 +505,19 @@ a:hover { color: #fff !important; }
   display: flex;
   flex-direction: column;
   gap: 10px;
+}
+/* 2-column grid when inside content column */
+.investor-profile-cards.ipc-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+@media (max-width: 575.98px) {
+  .investor-profile-cards.ipc-grid {
+    grid-template-columns: 1fr;
+  }
 }
 .investor-profile-cards li {
   display: flex;
