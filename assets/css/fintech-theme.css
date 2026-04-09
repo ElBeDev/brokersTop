@@ -79,8 +79,46 @@
 }
 
 /* ─────────────────────────────────────────
-   GLOBAL FONT & COLOR
+   INLINE SVG ICONS (.si)
+   Replaces Font Awesome — self-contained,
+   no CDN dependency, no 404s
 ───────────────────────────────────────── */
+.si {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.15em;
+  overflow: visible;
+  flex-shrink: 0;
+}
+.si-lg {
+  width: 1.75em;
+  height: 1.75em;
+  vertical-align: -0.35em;
+}
+.si-2x {
+  width: 2em;
+  height: 2em;
+  vertical-align: -0.4em;
+}
+/* Star ratings (Unicode ★★★★★ text) */
+.banner-rating,
+.testimonial-block .rating {
+  color: #FFCF40;
+  font-size: 14px;
+  letter-spacing: 2px;
+  display: inline-flex;
+  align-items: center;
+  gap: 1px;
+}
+/* Social icon sizing in footer / mobile */
+.footer_socials .si,
+.social-links .si {
+  width: 1em;
+  height: 1em;
+}
+
+
 *,
 body,
 .page-wrapper {
