@@ -1315,15 +1315,21 @@ textarea::placeholder {
    FIX 404 MISSING IMAGES FROM STYLE.CSS
 ───────────────────────────────────────── */
 
-/* Banner slide background — was a photo, now navy gradient */
-.banner-section .bg-slide-1,
+/* Banner slide backgrounds — fintech trading photos with dark navy overlay */
+.banner-section .bg-slide-1 {
+  background-image: url(../images/banner/slide-1.jpg) !important;
+  background-size: cover !important;
+  background-position: center !important;
+}
 .banner-section .bg-slide-2 {
-  background-image: none !important;
-  background-color: var(--ft-navy-deep) !important;
+  background-image: url(../images/banner/slide-2.jpg) !important;
+  background-size: cover !important;
+  background-position: center !important;
 }
 .banner-section .bg-slide-1::before,
 .banner-section .bg-slide-2::before {
   background-image: none !important;
+  background: linear-gradient(100deg, rgba(4,15,30,0.88) 0%, rgba(4,15,30,0.70) 60%, rgba(4,15,30,0.45) 100%) !important;
 }
 
 /* vector.png — decorative underline behind hero title span */
