@@ -7,8 +7,15 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap');
 
-/* ─── CSS Variables ─── */
+/* ─────────────────────────────────────────
+   ROOT VARIABLE OVERRIDE
+   Remaps every original template token to
+   the fintech navy/cyan palette so all
+   selectors using var(--theme-colorX) etc.
+   automatically inherit the new colors.
+───────────────────────────────────────── */
 :root {
+  /* ── Fintech palette tokens ── */
   --ft-navy:           #0B1F2A;
   --ft-navy-mid:       #0F2535;
   --ft-navy-card:      #112230;
@@ -22,6 +29,53 @@
   --ft-card-shadow:    0 8px 40px rgba(0, 0, 0, 0.5), 0 1px 0 rgba(63, 209, 255, 0.07) inset;
   --ft-radius-lg:      20px;
   --ft-radius-pill:    100px;
+
+  /* ── Remap original Forexy variables ── */
+  /* theme-color1 was lime #ddff93  → cyan accent */
+  --theme-color1:      #3FD1FF;
+  --theme-color1-rgb:  63, 209, 255;
+  --theme-color1-text-color: #071520;
+
+  /* theme-color2 was dark green #003f2f → navy (used as heading/bg base) */
+  --theme-color2:      #0F2535;
+  --theme-color2-rgb:  15, 37, 53;
+  --theme-color2-text-color: #FFFFFF;
+
+  /* theme-color3 was teal #018599 → mid blue */
+  --theme-color3:      #1a90d4;
+  --theme-color3-rgb:  26, 144, 212;
+  --theme-color3-text-color: #FFFFFF;
+
+  /* theme-color4 was muted green-gray #a0b1ac → muted blue */
+  --theme-color4:      #8BA8BB;
+  --theme-color4-rgb:  139, 168, 187;
+
+  /* theme-color5 was light gray #f1f3f3 → dark card bg */
+  --theme-color5:      #112230;
+  --theme-color5-rgb:  17, 34, 48;
+
+  /* theme-color6 was bright green #45DA00 → cyan */
+  --theme-color6:      #3FD1FF;
+
+  /* ── Semantic tokens ── */
+  --text-color:                    #8BA8BB;     /* was green-gray #62736f */
+  --gray-color:                    rgba(63, 209, 255, 0.12);
+  --headings-color:                #FFFFFF;     /* was var(--theme-color2) = dark green */
+  --link-color:                    #3FD1FF;     /* was dark green */
+  --link-hover-color:              #FFFFFF;     /* was lime */
+  --gradient-1:                    linear-gradient(to right, #071520 0%, rgba(7, 21, 32, 0) 100%);
+  --theme-light-background:        #112230;     /* was light gray #f1f3f3 */
+  --theme-light-background-text-color: #FFFFFF;
+  --theme-black:                   #071520;
+  --theme-white-bg:                #0F2535;     /* was white — now dark card bg */
+  --sec-title-subtitle-color:      #3FD1FF;     /* was var(--text-color) = green-gray */
+  --sec-title-color:               #FFFFFF;
+
+  /* keep white tokens as white (used for button/icon text on dark bg) */
+  --theme-color-white:             #FFFFFF;
+  --theme-color-white-rgb:         255, 255, 255;
+  --theme-color-light:             #FFFFFF;
+  --theme-color-dark:              #071520;
 }
 
 /* ─────────────────────────────────────────
@@ -1095,8 +1149,116 @@ a:hover { color: #fff !important; }
 }
 
 /* ─────────────────────────────────────────
-   CUSTOM SCROLLBAR
+   HARDCODED COLOR OVERRIDES
+   These selectors in style.css have colors
+   that can't be fixed via variable remapping
 ───────────────────────────────────────── */
+
+/* ── Body & page default ── */
+body {
+  background-color: var(--ft-navy) !important;
+  color: var(--ft-text-muted) !important;
+}
+
+/* ── Nav dropdown menus ── */
+.main-menu .navigation > li > ul,
+.main-menu .navigation > li > ul > li > ul,
+.main-menu .navigation > li > ul li a,
+.sticky-header .navigation > li > ul {
+  background-color: #071520 !important;
+  border: 1px solid var(--ft-accent-border) !important;
+}
+.main-menu .navigation > li > ul li a {
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+.main-menu .navigation > li > ul li a:hover {
+  color: var(--ft-accent) !important;
+  background-color: rgba(63, 209, 255, 0.06) !important;
+}
+
+/* ── Testimonial bg color block ── */
+.testimonial-section .testimonial-bg_color,
+.testimonial-section .testimonial-bg_color.bg {
+  background-color: transparent !important;
+  background: transparent !important;
+}
+
+/* ── Market blocks — icon bg was #f1f3f3 light gray ── */
+.market-block_one .left-box .icon {
+  background-color: rgba(63, 209, 255, 0.1) !important;
+  color: var(--ft-accent) !important;
+}
+.market-block_one .left-box .down {
+  color: #FF6B6B !important;
+  background-color: rgba(255, 107, 107, 0.1) !important;
+}
+
+/* ── Footer title underline — was lime→green gradient ── */
+.main-footer .footer-title::before,
+.main-footer .footer-title:before {
+  background-image: linear-gradient(to right, #3FD1FF, #1a90d4, #0F2535) !important;
+}
+
+/* ── Accordion / FAQ ── */
+.accordion-box .accordion.block .acc-btn {
+  background-color: transparent !important;
+}
+.accordion-box .accordion.block .acc-content {
+  background-color: rgba(17, 34, 48, 0.5) !important;
+}
+
+/* ── Steps section number hover text ── */
+.step-block_one .inner-box .content-box-hover .title a,
+.step-block_one .inner-box .content-box-hover h4 a {
+  color: #ffffff !important;
+}
+
+/* ── Search, form inputs global ── */
+input[type="text"],
+input[type="email"],
+input[type="search"],
+input[type="tel"],
+input[type="number"],
+textarea,
+select {
+  background-color: rgba(17, 34, 48, 0.7) !important;
+  border-color: var(--ft-accent-border) !important;
+  color: #fff !important;
+}
+input::placeholder,
+textarea::placeholder {
+  color: var(--ft-text-muted) !important;
+}
+
+/* ── Social icons ── */
+.social-icon-two li a {
+  background-color: rgba(17, 34, 48, 0.9) !important;
+  border: 1px solid var(--ft-accent-border) !important;
+}
+.social-icon-two li a:hover::before {
+  background-color: var(--ft-accent) !important;
+}
+
+/* ── News block date ── */
+.news-block_one .info-box .date {
+  background: rgba(63, 209, 255, 0.1) !important;
+  color: var(--ft-accent) !important;
+}
+
+/* ── Swiper pagination dots ── */
+.swiper-pagination-bullet {
+  background: rgba(63, 209, 255, 0.25) !important;
+  opacity: 1 !important;
+}
+.swiper-pagination-bullet-active {
+  background: var(--ft-accent) !important;
+}
+
+/* ── Progress bars ── */
+.progress-bar,
+.skill-bar .bar-inner .bar {
+  background-color: var(--ft-accent) !important;
+}
 ::-webkit-scrollbar {
   width: 6px;
 }
