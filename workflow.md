@@ -43,6 +43,9 @@ Rebrand the existing `brokersTop` static landing page from **Brokers Top LLC** t
 - [x] Created text-based placeholder logo assets for Altoros Trust.
 - [x] Replaced all logo references and removed old Brokers Top logo files.
 - [x] Performed browser QA: no broken images, no old brand text, all sections render.
+- [x] Added social media "coming soon" alerts for placeholder links.
+- [x] Downloaded testimonial avatars locally to remove external dependency.
+- [x] Improved image alt text for accessibility.
 
 ---
 
@@ -96,13 +99,15 @@ Until real contact details are confirmed, use:
 - Logo placeholders are functional SVG text logos. Replace with a professionally designed logo when available.
 - Contact placeholders are intentionally visible so the client notices them before launch.
 - Map embed is commented out; restore once a real address is confirmed.
+- Social media links show "coming soon" alerts until real profiles are created.
+- Testimonial avatars are now local assets (no external API dependency).
 
 ---
 
-## Git Commit
+## Git Commits
 
-- Commit: `783a409` — "Rebrand Brokers Top to Altoros Trust LLC"
-- 21 files changed, 511 insertions(+), 102 deletions(-)
+- `783a409` — "Rebrand Brokers Top to Altoros Trust LLC" (21 files changed, 511 insertions(+), 102 deletions(-))
+- `1b9b4a0` — "Polish rebrand and add remaining assets" (7 files changed, 37 insertions(+), 30 deletions(-))
 
 ---
 
