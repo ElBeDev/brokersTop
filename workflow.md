@@ -99,6 +99,13 @@ Until real contact details are confirmed, use:
 
 ---
 
+## Git Commit
+
+- Commit: `783a409` — "Rebrand Brokers Top to Altoros Trust LLC"
+- 21 files changed, 511 insertions(+), 102 deletions(-)
+
+---
+
 ## Last Updated
 
 2026-07-05
