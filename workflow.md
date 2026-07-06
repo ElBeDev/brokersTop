@@ -58,7 +58,7 @@ Rebrand the existing `brokersTop` static landing page from **Brokers Top LLC** t
 ## Pending
 
 - [ ] Decide and update operational contact information once provided.
-- [ ] Create final professional logo assets (current ones are text-based placeholders).
+- [x] Create and apply final professional logo assets (shield + AT monogram).
 - [ ] Final visual QA with final logo and contact details.
 
 ---
@@ -69,7 +69,7 @@ Rebrand the existing `brokersTop` static landing page from **Brokers Top LLC** t
 |---|---|---|
 | `index.html` | Done | Main content, meta tags, contact info, logo refs |
 | `assets/css/fintech-theme.css` | Done | Theme header comment updated |
-| `assets/images/logo/*` | Done (placeholders) | Text-based placeholder logos created; final design pending |
+| `assets/images/logo/*` | Done | Shield + AT monogram logo applied to all sizes |
 | `workflow.md` | Ongoing | Update as tasks progress |
 
 ---
@@ -96,7 +96,7 @@ Until real contact details are confirmed, use:
 
 ## Notes
 
-- Logo placeholders are functional SVG text logos. Replace with a professionally designed logo when available.
+- Logo: shield + AT monogram in teal gradient, applied to all sizes and favicons.
 - Contact placeholders are intentionally visible so the client notices them before launch.
 - Map embed is commented out; restore once a real address is confirmed.
 - Social media links show "coming soon" alerts until real profiles are created.
@@ -108,6 +108,7 @@ Until real contact details are confirmed, use:
 
 - `783a409` — "Rebrand Brokers Top to Altoros Trust LLC" (21 files changed, 511 insertions(+), 102 deletions(-))
 - `1b9b4a0` — "Polish rebrand and add remaining assets" (7 files changed, 37 insertions(+), 30 deletions(-))
+- `f99660a` — "Apply selected Altoros Trust logo concept" (8 files changed, 78 insertions(+), 25 deletions(-))
 
 ---
 
