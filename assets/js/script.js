@@ -100,13 +100,33 @@ var THEMEMASCOT = {};
 		});
 
 		//Menu Toggle Btn
-		$('.mobile-nav-toggler').on('click', function() {
+		$('.mobile-nav-toggler').on('click', function(e) {
+			e.preventDefault();
+			e.stopPropagation();
 			$('body').addClass('mobile-menu-visible');
 		});
 
 		//Menu Toggle Btn
 		$('.mobile-menu .menu-backdrop, .mobile-menu .close-btn').on('click', function() {
 			$('body').removeClass('mobile-menu-visible');
+		});
+
+		// Close mobile menu and smooth-scroll when a nav link is tapped
+		$('.mobile-menu .navigation').on('click', 'a[href^="#"]', function(e) {
+			var href = $(this).attr('href');
+			if (href && href !== '#') {
+				$('body').removeClass('mobile-menu-visible');
+				var target = $(href);
+				if (target.length) {
+					setTimeout(function() {
+						$('html, body').animate({
+							scrollTop: target.offset().top - 80
+						}, 400);
+					}, 300);
+				}
+			} else {
+				e.preventDefault();
+			}
 		});
 
 	}
@@ -170,8 +190,12 @@ var THEMEMASCOT = {};
 			$stepBlocks.removeClass('active');
 			$lastActiveBlock.addClass('active');
 
-			// Only enable hover for screens ≥ 768px
-			if ($(window).width() >= 768) {
+			// Only enable hover for screens ≥ 992px; on touch devices use click/tap
+			function isTouch() {
+				return 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+			}
+
+			if (!isTouch() && $(window).width() >= 992) {
 				$stepBlocks.hover(
 					function () { // mouseenter
 						$stepBlocks.removeClass('active');
@@ -183,6 +207,12 @@ var THEMEMASCOT = {};
 						$lastActiveBlock.addClass('active');
 					}
 				);
+			} else {
+				$stepBlocks.on('click', function () {
+					$stepBlocks.removeClass('active');
+					$(this).addClass('active');
+					$lastActiveBlock = $(this);
+				});
 			}
 		});
 	}
@@ -290,35 +320,27 @@ var THEMEMASCOT = {};
 	// Testi Swiper Two
 	if ($('.testi-swiper').length) {  
 		var swiper = new Swiper(".testi-swiper", {
-			slidesPerView: 3,
-			spaceBetween: 30,
+			slidesPerView: 1,
+			spaceBetween: 20,
 			loop: true,
+			autoHeight: true,
+			grabCursor: true,
 			pagination: {
 				el: ".swiper-pagination",
 				clickable: true
 			},
 			navigation: {
-				nextEl: ".swiper-button-next",
-				prevEl: ".swiper-button-prev",
+				nextEl: ".testi-swiper .swiper-button-next",
+				prevEl: ".testi-swiper .swiper-button-prev",
 			},
 			breakpoints: {
-				'1600': {
-					slidesPerView: 3,
+				'992': {
+					slidesPerView: 2,
+					spaceBetween: 24,
 				},
 				'1200': {
 					slidesPerView: 3,
-				},
-				'992': {
-					slidesPerView: 2,
-				},
-				'768': {
-					slidesPerView: 2,
-				},
-				'576': {
-					slidesPerView: 1,
-				},
-				'0': {
-					slidesPerView: 1,
+					spaceBetween: 28,
 				},
 			},
 		});
@@ -768,15 +790,30 @@ var THEMEMASCOT = {};
 
 	// Scroll to a Specific Div
 	if($('.scroll-to-target').length){
-		$(".scroll-to-target").on('click', function() {
+		$(".scroll-to-target").on('click', function(e) {
+			e.preventDefault();
 			var target = $(this).attr('data-target');
-		   // animate
-			$('html, body').animate({
-				scrollTop: $(target).offset().top
-			}, 0);
-
+			if (target && $(target).length) {
+				$('html, body').animate({
+					scrollTop: $(target).offset().top - 80
+				}, 400);
+			}
 		});
 	}
+
+	// Smooth scroll for all in-page anchor links
+	$(document).on('click', 'a[href^="#"]', function(e) {
+		var href = $(this).attr('href');
+		if (href && href !== '#' && !$(this).closest('.mobile-menu').length) {
+			var target = $(href);
+			if (target.length) {
+				e.preventDefault();
+				$('html, body').animate({
+					scrollTop: target.offset().top - 80
+				}, 400);
+			}
+		}
+	});
 
 	// Elements Animation
 	if($('.wow').length){
@@ -856,6 +893,10 @@ var THEMEMASCOT = {};
 		const st = $(".tx-split-text");
 		if (!st.length) return;
 
+		// Respect reduced-motion preference
+		const prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+		if (prefersReducedMotion) return;
+
 		gsap.registerPlugin(SplitText);
 
 		st.each(function () {
@@ -870,12 +911,12 @@ var THEMEMASCOT = {};
         // Define animation presets
 			const animations = {
 				"split-in-fade": { opacity: 0, ease: "back.out" },
-				"split-in-right": { opacity: 0, x: 50, ease: "back.out" },
-				"split-in-left": { opacity: 0, x: -50, ease: "circ.out" },
-				"split-in-up": { opacity: 0, y: 80, ease: "circ.out" },
-				"split-in-down": { opacity: 0, y: -80, ease: "circ.out" },
-				"split-in-rotate": { opacity: 0, rotateX: 50, ease: "circ.out" },
-				"split-in-scale": { opacity: 0, scale: 0.5, ease: "circ.out" },
+				"split-in-right": { opacity: 0, x: 40, ease: "back.out" },
+				"split-in-left": { opacity: 0, x: -40, ease: "circ.out" },
+				"split-in-up": { opacity: 0, y: 50, ease: "circ.out" },
+				"split-in-down": { opacity: 0, y: -50, ease: "circ.out" },
+				"split-in-rotate": { opacity: 0, rotateX: 30, ease: "circ.out" },
+				"split-in-scale": { opacity: 0, scale: 0.9, ease: "circ.out" },
 			};
 
         // Apply initial state based on class
@@ -896,8 +937,8 @@ var THEMEMASCOT = {};
 				rotateX: 0,
 				scale: 1,
 				opacity: 1,
-				duration: 0.8,
-				stagger: 0.02,
+				duration: 0.6,
+				stagger: 0.015,
 			});
 		});
 	});

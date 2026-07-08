@@ -46,6 +46,9 @@ Rebrand the existing `brokersTop` static landing page from **Brokers Top LLC** t
 - [x] Added social media "coming soon" alerts for placeholder links.
 - [x] Downloaded testimonial avatars locally to remove external dependency.
 - [x] Improved image alt text for accessibility.
+- [x] Corrected support hours to 10:00 AM - 5:00 PM EST.
+- [x] Increased readability and contrast for older users.
+- [x] Fixed mobile navigation, CTA scrolling, and testimonial carousel behavior.
 
 ---
 
@@ -59,7 +62,7 @@ Rebrand the existing `brokersTop` static landing page from **Brokers Top LLC** t
 
 - [ ] Decide and update operational contact information once provided.
 - [x] Create and apply final professional logo assets (shield + AT monogram).
-- [ ] Final visual QA with final logo and contact details.
+- [ ] Final visual QA on live mobile after latest deployment.
 
 ---
 
@@ -101,6 +104,7 @@ Until real contact details are confirmed, use:
 - Map embed is commented out; restore once a real address is confirmed.
 - Social media links show "coming soon" alerts until real profiles are created.
 - Testimonial avatars are now local assets (no external API dependency).
+- Latest polish pass focused on support-hours accuracy, larger text/tap targets, reduced motion, and mobile testimonial stability.
 
 ---
 
@@ -114,4 +118,4 @@ Until real contact details are confirmed, use:
 
 ## Last Updated
 
-2026-07-05
+2026-07-08
